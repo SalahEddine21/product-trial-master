@@ -1,0 +1,51 @@
+:host {
+    display: block;
+    height: calc(100vh - 7.5rem);
+    overflow: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.cart-item-container {
+    border: 0.0625rem solid #ccc;
+    padding: 0.625rem;
+    margin-bottom: 0.625rem;
+    border-radius: 0.3125rem;
+}
+
+.cart-summary-section {
+    margin-top: 1.25rem;
+    text-align: right;
+}
+
+.delete-item-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.3125rem 0.625rem;
+    cursor: pointer;
+    border-radius: 0.1875rem;
+}
+
+.delete-item-btn:hover {
+    background-color: #d32f2f;
+}
+
+.reset-cart-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 0.625rem 0.9375rem;
+    cursor: pointer;
+    border-radius: 0.1875rem;
+}
+
+.reset-cart-btn:hover {
+    background-color: #1976d2;
+}
+
+.cart-empty-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+}

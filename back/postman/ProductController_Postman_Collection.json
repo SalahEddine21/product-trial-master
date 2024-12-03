@@ -1,0 +1,117 @@
+{
+  "info": {
+    "name": "Product Controller Test Collection",
+    "_postman_id": "product-controller-collection",
+    "description": "Postman Collection for testing the ProductController endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/products?page=0&size=10&sortField=name&sortDirection=ASC",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "products"],
+          "query": [
+            { "key": "page", "value": "0" },
+            { "key": "size", "value": "10" },
+            { "key": "sortField", "value": "name" },
+            { "key": "sortDirection", "value": "ASC" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Product by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/products/1",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "products", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer <admin-token>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"P001\",\n  \"name\": \"Product 1\",\n  \"description\": \"A test product\",\n  \"image\": \"http://example.com/image.jpg\",\n  \"category\": \"Category A\",\n  \"price\": 100.0,\n  \"quantity\": 10,\n  \"internalReference\": \"REF123\",\n  \"shellId\": 1,\n  \"inventoryStatus\": \"IN_STOCK\",\n  \"rating\": 4.5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "products"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer <admin-token>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"code\": \"P001\",\n  \"name\": \"Updated Product 1\",\n  \"description\": \"Updated description\",\n  \"image\": \"http://example.com/image-updated.jpg\",\n  \"category\": \"Category A\",\n  \"price\": 150.0,\n  \"quantity\": 15,\n  \"internalReference\": \"REF124\",\n  \"shellId\": 2,\n  \"inventoryStatus\": \"OUT_OF_STOCK\",\n  \"rating\": 5.0\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "products"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Patch Product",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer <admin-token>" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"price\": 120.0,\n  \"quantity\": 12\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/products",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "products"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer <admin-token>" }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/products/1",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "products", "1"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
