@@ -1,0 +1,76 @@
+{
+    "info": {
+      "name": "AccountWishListController Test Collection",
+      "description": "Test scenarios for AccountWishListController, including getting, adding, and removing items from the wishlist.",
+      "_postman_id": "efgh5678-ijkl-9101-mnop-112233445566",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Get User's Wishlist by Account ID",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{authToken}}",
+              "description": "JWT token for authentication"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8080/api/wishlist/{{accountId}}",
+            "host": ["http://localhost:8080"],
+            "path": ["api", "wishlist", "{{accountId}}"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Add Item to Wishlist",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Authorization",
+              "value": "Bearer {{authToken}}",
+              "description": "JWT token for authentication"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"account\": {\n    \"id\": {{accountId}},\n    \"firstName\": \"{{firstName}}\",\n    \"userName\": \"{{userName}}\",\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n  },\n  \"product\": {\n    \"id\": {{productId}},\n    \"name\": \"{{productName}}\",\n    \"description\": \"{{productDescription}}\",\n    \"image\": \"{{productImage}}\",\n    \"category\": \"{{productCategory}}\",\n    \"price\": {{productPrice}},\n    \"quantity\": {{productQuantity}}\n  },\n  \"quantity\": {{quantity}}\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8080/api/wishlist",
+            "host": ["http://localhost:8080"],
+            "path": ["api", "wishlist"]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Remove Item from Wishlist",
+        "request": {
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{authToken}}",
+              "description": "JWT token for authentication"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:8080/api/wishlist/{{wishlistId}}",
+            "host": ["http://localhost:8080"],
+            "path": ["api", "wishlist", "{{wishlistId}}"]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  

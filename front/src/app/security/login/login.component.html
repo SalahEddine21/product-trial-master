@@ -1,0 +1,41 @@
+<h2 class="flex justify-content-center">Login</h2>
+<form class="row" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="col-offset-3 col-6">
+        <div class="p-field p-fluid">
+            <label for="username">Username</label>
+            <input 
+                id="username" 
+                type="text" 
+                pInputText 
+                formControlName="username" 
+                [ngClass]="{ 'p-invalid': submitted && form.username.errors }" />
+            <small *ngIf="submitted && form.username.errors" class="p-error">
+                <div *ngIf="form.username.errors.required">Username is required</div>
+            </small>
+        </div>
+
+        <!-- Password Field -->
+        <div class="p-field p-fluid">
+            <label for="password">Password</label>
+            <input type="password" pInputText formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && form.password.errors }" />
+            <small *ngIf="submitted && form.password.errors" class="p-error">
+                <div *ngIf="form.password.errors.required">Password is required</div>
+            </small>
+        </div>
+
+        <!-- Buttons -->
+        <div class="p-field p-fluid">
+            <p-button 
+                type="submit"
+                label="Login" 
+                icon="pi pi-sign-in" 
+                [disabled]="loading"
+                styleClass="p-button-primary">
+                <ng-template pTemplate="icon" *ngIf="loading">
+                    <i class="pi pi-spinner pi-spin"></i>
+                </ng-template>
+            </p-button>
+            <a routerLink="/register" class="p-button p-button-link">Register</a>
+        </div>
+    </div>
+</form>

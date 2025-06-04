@@ -1,0 +1,1 @@
+export const TAB_ROWS_PER_PAGE = [5, 10, 20, 50];

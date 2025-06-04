@@ -1,0 +1,32 @@
+{
+  "info": {
+    "name": "AccountController Test Collection",
+    "description": "Test scenarios for AccountController, including account creation.",
+    "_postman_id": "abcd1234-efgh-5678-ijkl-91011121314",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create New Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"{{firstName}}\",\n  \"userName\": \"{{userName}}\",\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/accounts",
+          "host": ["http://localhost:8080"],
+          "path": ["api", "accounts"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<div *ngIf="!isLoginRoute(); else loginPage">
+    <p-toolbar [style]="{ height: '100px' }">
+        <div class="p-toolbar-group-start">
+            <img src="assets/icons/icon-72x72.png" alt="logo" />
+        </div>
+        <div class="p-toolbar-group-center">
+            {{ title }}
+        </div>
+        <div class="p-toolbar-group-end">
+            <i class="pi pi-shopping-cart" style="font-size: 2rem; cursor: pointer;"
+            [routerLink]="['/cart']"></i>
+            <span *ngIf="cartService.cart().length > 0" class="cart-badge">
+                {{ cartService.cart().length }}
+              </span>      
+        </div>
+    </p-toolbar>
+    <p-splitter [panelSizes]="[20, 80]" [style]="{ height: 'calc(100vh - 100px)' }">
+        <ng-template pTemplate>
+            <div class="w-full">
+                <app-panel-menu></app-panel-menu>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <div class="w-full app-content">
+                <router-outlet></router-outlet>
+            </div>
+        </ng-template>
+    </p-splitter>
+</div>
+
+<ng-template #loginPage>
+    <router-outlet></router-outlet>
+</ng-template>

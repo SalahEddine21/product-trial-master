@@ -1,0 +1,21 @@
+<h1>My Cart</h1>
+<div *ngIf="cartItems.length === 0" class="empty-cart">
+    Your cart is empty.
+</div>
+
+<div *ngIf="cartItems.length > 0">
+    <div class="cart-item-container" *ngFor="let item of cartItems">
+        <div class="item-summary-section">
+            <h3>{{ item.product.name }}</h3>
+            <p><strong>Category:</strong> {{ item.product.category }}</p>
+            <p><strong>Price:</strong> {{ item.product.price | currency }}</p>
+            <p><strong>Quantity:</strong> {{ item.product.quantity }}</p>
+        </div>
+        <button class="delete-item-btn" (click)="removeProduct(item.id)">Remove</button>
+    </div>
+
+    <div class="cart-summary-section">
+        <h2>Total Price: {{ totalPrice | currency }}</h2>
+        <p-button label="Clear Cart" severity="danger" (click)="clearCart()"></p-button>
+    </div>
+</div>
